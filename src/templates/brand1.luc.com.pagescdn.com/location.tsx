@@ -21,15 +21,15 @@ import {
   TransformProps,
 } from "@yext/pages";
 import { isProduction } from "@yext/pages/util";
-import "../index.css";
-import Favicon from "../assets/images/yext-favicon.ico";
-import About from "../components/About";
-import Banner from "../components/Banner";
-import Details from "../components/Details";
-import Hours from "../components/Hours";
-import PageLayout from "../components/PageLayout";
-import EditTool from "../components/EditTool";
-import BreadCrumbs from "../components/Breadcrumbs";
+import "../styles/brand1.luc.com.pagescdn.com/index.css";
+import Favicon from "../../assets/images/yext-favicon.ico";
+import About from "../../components/About";
+import Banner from "../../components/Banner";
+import Details from "../../components/Details";
+import Hours from "../../components/Hours";
+import PageLayout from "../../components/PageLayout";
+import EditTool from "../../components/EditTool";
+import BreadCrumbs from "../../components/Breadcrumbs";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -40,7 +40,7 @@ export const config: TemplateConfig = {
     // Defines the scope of entities that qualify for this stream.
     // You can use entityTypes, savedFilterIds, and/or entityIds
     filter: {
-      entityTypes: ["location"],
+      savedFilterIds: ["1317917496"],
     },
     // Specifies the exact data that each generated document will contain.
     // This data is passed in directly as props to the default exported function.
@@ -180,10 +180,10 @@ const Location: Template<TemplateRenderProps> = ({
       <PageLayout>
         <Banner name={name} address={address} />
         <div className="centered-container">
-          <BreadCrumbs
+          {/* <BreadCrumbs
             breadcrumbs={dm_directoryParents}
             baseUrl={relativePrefixToRoot}
-          />
+          /> */}
           <div className="grid gap-x-10 gap-y-10 md:grid-cols-2">
             <Details address={address} phone={mainPhone} services={services} />
             {hours && <Hours title={"Restaurant Hours"} hours={hours} />}

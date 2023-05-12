@@ -3,7 +3,7 @@
  */
 import * as React from "react";
 import { fetch } from "@yext/pages/util";
-import "../index.css";
+import "../styles/brand1.luc.com.pagescdn.com/index.css";
 import {
   Template,
   GetPath,
@@ -14,11 +14,11 @@ import {
   TemplateProps,
   TemplateRenderProps,
 } from "@yext/pages";
-import PageLayout from "../components/PageLayout";
-import Card from "../components/Card";
-import { ExternalImage } from "../types/ExternalImage";
-import Favicon from "../assets/images/yext-favicon.ico";
-import Banner from "../components/Banner";
+import PageLayout from "../../components/PageLayout";
+import Card from "../../components/Card";
+import { ExternalImage } from "../../types/ExternalImage";
+import Favicon from "../../assets/images/yext-favicon.ico";
+import Banner from "../../components/Banner";
 
 /**
  * Not required depending on your use case.
