@@ -9,6 +9,15 @@ const navigation = [
 ];
 
 const Header = () => {
+
+  const primaryColor = {
+    background: "rgb(var(--color-primary))",
+  }
+  const secondaryColor = {
+    background: "rgb(var(--color-secondary))",
+    color: "white"
+  }
+
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -55,11 +64,14 @@ const Header = () => {
                 </div>
               </div>
               <div className="flex items-center">
-                <Cta
+                {/* <Cta
                   buttonText="Order Online"
                   url="#"
-                  style="text-white bg-orange shadow-md"
-                />
+                  style={secondaryColor}
+                /> */}
+                <div className="py-4 px-6 text-base font-bold rounded-lg hover:cursor-pointer hover:scale-[1.02] duration-250 shadow-md" style={secondaryColor}>
+                  <div>Click Me</div>
+                </div>
               </div>
             </div>
           </div>
