@@ -2,7 +2,7 @@ export default function HelloWorld(request) {
     const { pathParams, queryParams, site } = request
 
     let response = {
-        message: (`Hello world (brand2)`),
+        message: (`Hello world (Yext Tacos)`),
         pathParams: pathParams,
         queryParams: queryParams,
         site: site

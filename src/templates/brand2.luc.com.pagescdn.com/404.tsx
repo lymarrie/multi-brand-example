@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../../styles/brand2.luc.com.pagescdn.com/index.css";
+import "../../styles/sushi.yext.com.pagescdn.com/index.css";
 import {
   Template,
   GetPath,

@@ -21,7 +21,7 @@ import {
   TransformProps,
 } from "@yext/pages";
 import { isProduction } from "@yext/pages/util";
-import "../../styles/brand2.luc.com.pagescdn.com/index.css";
+import "../../styles/sushi.yext.com.pagescdn.com/index.css";
 import Favicon from "../../assets/images/sushi-favicon.ico";
 import About from "../../components/About";
 import Banner from "../../components/BannerBrand2";
