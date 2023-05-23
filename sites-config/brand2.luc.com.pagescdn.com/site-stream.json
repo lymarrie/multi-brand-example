@@ -1,0 +1,18 @@
+{
+    "$id": "site-entity",
+    "filter": {
+      "entityIds": ["luc-san-sushi-site"]
+    },
+    "source": "knowledgeGraph",
+    "fields": [
+      "name",
+      "logo",
+      "c_header",
+      "c_footer",
+      "c_styling"
+    ],
+    "localization": {
+      "locales": ["en"],
+      "primary": false
+    }
+  }

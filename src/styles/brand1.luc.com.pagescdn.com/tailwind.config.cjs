@@ -5,6 +5,8 @@ module.exports = {
       colors: {
         orange: "#ff9500",
         "dark-orange": "#db8000",
+        "primary": "#FFA31F",
+        "secondary": "#8946FF"
       },
       scale: {
         1.02: "1.02",

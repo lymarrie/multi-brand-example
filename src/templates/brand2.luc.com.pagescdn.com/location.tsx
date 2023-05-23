@@ -21,10 +21,10 @@ import {
   TransformProps,
 } from "@yext/pages";
 import { isProduction } from "@yext/pages/util";
-import "../styles/brand1.luc.com.pagescdn.com/index.css";
-import Favicon from "../../assets/images/yext-favicon.ico";
+import "../../styles/brand2.luc.com.pagescdn.com/index.css";
+import Favicon from "../../assets/images/sushi-favicon.ico";
 import About from "../../components/About";
-import Banner from "../../components/Banner";
+import Banner from "../../components/BannerBrand2";
 import Details from "../../components/Details";
 import Hours from "../../components/Hours";
 import PageLayout from "../../components/PageLayout";
@@ -40,7 +40,7 @@ export const config: TemplateConfig = {
     // Defines the scope of entities that qualify for this stream.
     // You can use entityTypes, savedFilterIds, and/or entityIds
     filter: {
-      savedFilterIds: ["1317922895"],
+      savedFilterIds: ["1189178341"],
     },
     // Specifies the exact data that each generated document will contain.
     // This data is passed in directly as props to the default exported function.
@@ -57,10 +57,7 @@ export const config: TemplateConfig = {
       "geocodedCoordinate",
       "services",
       "photoGallery",
-      "dm_directoryParents.name",
-      "dm_directoryParents.slug",
-      "dm_directoryParents.meta",
-      "dm_directoryParents.c_addressRegionDisplayName",
+      "paymentOptions"
     ],
     // The entity language profiles that documents will be generated for.
     localization: {
@@ -130,26 +127,6 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   };
 };
 
-/**
- * Required only when data needs to be retrieved from an external (non-Knowledge Graph) source.
- * If the page is truly static this function is not necessary.
- *
- * This function will be run during generation and pass in directly as props to the default
- * exported function.
- */
-export const transformProps: TransformProps<any> = async (data) => {
-  const { dm_directoryParents, name } = data.document;
-
-  (dm_directoryParents || []).push({ name: name, slug: "" });
-
-  return {
-    ...data,
-    document: {
-      ...data.document,
-      dm_directoryParents: dm_directoryParents,
-    },
-  };
-};
 
 /**
  * This is the main template. It can have any name as long as it's the default export.
@@ -165,6 +142,7 @@ const Location: Template<TemplateRenderProps> = ({
   document,
 }) => {
   const {
+    _site,
     name,
     address,
     hours,
@@ -177,8 +155,8 @@ const Location: Template<TemplateRenderProps> = ({
 
   return (
     <>
-      <PageLayout>
-        <Banner name={name} address={address} />
+      <PageLayout _site={_site}>
+        <Banner name={name} address={address} imagePath={"/src/assets/images/banner.webp"} />
         <div className="centered-container">
           {/* <BreadCrumbs
             breadcrumbs={dm_directoryParents}

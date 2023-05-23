@@ -13,12 +13,12 @@ import {
   TemplateProps,
   TemplateRenderProps,
 } from "@yext/pages";
-import "../styles/brand1.luc.com.pagescdn.com/index.css";
+import "../../styles/brand2.luc.com.pagescdn.com/index.css";
 import PageLayout from "../../components/PageLayout";
 import Card from "../../components/Card";
 import { ExternalImage } from "../../types/ExternalImage";
-import Favicon from "../../assets/images/yext-favicon.ico";
-import Banner from "../../components/Banner";
+import Favicon from "../../assets/images/sushi-favicon.ico";
+import Banner from "../../components/BannerBrand2";
 
 /**
  * Not required depending on your use case.
@@ -26,7 +26,7 @@ import Banner from "../../components/Banner";
 export const config: TemplateConfig = {
   // The name of the feature. If not set the name of this file will be used (without extension).
   // Use this when you need to override the feature name.
-  name: "turtlehead-tacos",
+  name: "luc-sans-sushi",
 };
 
 /**
@@ -110,7 +110,7 @@ const Static: Template<ExternalImageRenderData> = ({ externalImage }) => {
   return (
     <>
       <PageLayout>
-        <Banner name={"Turtlehead Tacos"} />
+      <Banner name={"Luc-san's Sushi"} imagePath={"/src/assets/images/banner.webp"} />
         <div className="centered-container">
           <div className="section space-y-14 px-10">
             <Card {...externalImage} />

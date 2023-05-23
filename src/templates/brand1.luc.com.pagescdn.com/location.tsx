@@ -1,13 +1,3 @@
-/**
- * This is an example of how to create a template that makes use of streams data.
- * The stream data originates from Yext's Knowledge Graph. When a template in
- * concert with a stream is built by the Yext Pages system, a static html page
- * is generated for every corresponding (based on the filter) stream document.
- *
- * Another way to think about it is that a page will be generated using this
- * template for every eligible entity in your Knowledge Graph.
- */
-
 import * as React from "react";
 import {
   GetHeadConfig,
@@ -21,29 +11,22 @@ import {
   TransformProps,
 } from "@yext/pages";
 import { isProduction } from "@yext/pages/util";
-import "../styles/brand1.luc.com.pagescdn.com/index.css";
-import Favicon from "../../assets/images/yext-favicon.ico";
+import "../../styles/brand1.luc.com.pagescdn.com/index.css";
+import Favicon from "../../assets/images/taco-favicon.ico";
 import About from "../../components/About";
-import Banner from "../../components/Banner";
+import Banner from "../../components/BannerBrand1";
 import Details from "../../components/Details";
 import Hours from "../../components/Hours";
 import PageLayout from "../../components/PageLayout";
 import EditTool from "../../components/EditTool";
 import BreadCrumbs from "../../components/Breadcrumbs";
 
-/**
- * Required when Knowledge Graph data is used for a template.
- */
 export const config: TemplateConfig = {
   stream: {
     $id: "location-stream",
-    // Defines the scope of entities that qualify for this stream.
-    // You can use entityTypes, savedFilterIds, and/or entityIds
     filter: {
-      savedFilterIds: ["1317917496"],
+      savedFilterIds: ["1189183740"],
     },
-    // Specifies the exact data that each generated document will contain.
-    // This data is passed in directly as props to the default exported function.
     fields: [
       "id",
       "uid",
@@ -57,12 +40,8 @@ export const config: TemplateConfig = {
       "geocodedCoordinate",
       "services",
       "photoGallery",
-      "dm_directoryParents.name",
-      "dm_directoryParents.slug",
-      "dm_directoryParents.meta",
-      "dm_directoryParents.c_addressRegionDisplayName",
+      "paymentOptions",
     ],
-    // The entity language profiles that documents will be generated for.
     localization: {
       locales: ["en"],
       primary: false,
@@ -73,12 +52,6 @@ export const config: TemplateConfig = {
   },
 };
 
-/**
- * Defines the path that the generated file will live at for production.
- *
- * NOTE: To preview production URLs locally, you must return document.slug from this function
- * and ensure that each entity has the slug field pouplated.
- */
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
   return document.slug
     ? document.slug
@@ -87,22 +60,7 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
       }-${document.id.toString()}`;
 };
 
-/**
- * Defines a list of paths which will redirect to the path created by getPath.
- *
- * NOTE: This currently has no impact on the local dev path. Redirects will be setup on
- * a new deploy.
- */
-export const getRedirects: GetRedirects<TemplateProps> = ({ document }) => {
-  return [`index-old/${document.locale}/${document.id.toString()}`];
-};
 
-/**
- * This allows the user to define a function which will take in their template
- * data and produce a HeadConfig object. When the site is generated, the HeadConfig
- * will be used to generate the inner contents of the HTML document's <head> tag.
- * This can include the title, meta tags, script tags, etc.
- */
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   document,
 }): HeadConfig => {
@@ -130,41 +88,13 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   };
 };
 
-/**
- * Required only when data needs to be retrieved from an external (non-Knowledge Graph) source.
- * If the page is truly static this function is not necessary.
- *
- * This function will be run during generation and pass in directly as props to the default
- * exported function.
- */
-export const transformProps: TransformProps<any> = async (data) => {
-  const { dm_directoryParents, name } = data.document;
 
-  (dm_directoryParents || []).push({ name: name, slug: "" });
-
-  return {
-    ...data,
-    document: {
-      ...data.document,
-      dm_directoryParents: dm_directoryParents,
-    },
-  };
-};
-
-/**
- * This is the main template. It can have any name as long as it's the default export.
- * The props passed in here are the direct stream document defined by `config`.
- *
- * There are a bunch of custom components being used from the src/components folder. These are
- * an example of how you could create your own. You can set up your folder structure for custom
- * components any way you'd like as long as it lives in the src folder (though you should not put
- * them in the src/templates folder as this is specific for true template files).
- */
 const Location: Template<TemplateRenderProps> = ({
   relativePrefixToRoot,
   document,
 }) => {
   const {
+    _site,
     name,
     address,
     hours,
@@ -177,13 +107,13 @@ const Location: Template<TemplateRenderProps> = ({
 
   return (
     <>
-      <PageLayout>
-        <Banner name={name} address={address} />
+      <PageLayout _site={_site}>
+      <Banner name={name} address={address} />
         <div className="centered-container">
-          {/* <BreadCrumbs
+          {dm_directoryParents && <BreadCrumbs
             breadcrumbs={dm_directoryParents}
             baseUrl={relativePrefixToRoot}
-          /> */}
+          />}
           <div className="grid gap-x-10 gap-y-10 md:grid-cols-2">
             <Details address={address} phone={mainPhone} services={services} />
             {hours && <Hours title={"Restaurant Hours"} hours={hours} />}

@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../styles/brand1.luc.com.pagescdn.com/index.css";
+import "../../styles/brand1.luc.com.pagescdn.com/index.css";
 import {
   Template,
   GetPath,
@@ -9,9 +9,9 @@ import {
   TemplateProps,
   TemplateRenderProps,
 } from "@yext/pages";
-import Banner from "../../components/Banner";
+import Banner from "../../components/BannerBrand1";
 import PageLayout from "../../components/PageLayout";
-import Favicon from "../../assets/images/yext-favicon.ico";
+import Favicon from "../../assets/images/taco-favicon.ico";
 
 export const config: TemplateConfig = {
   name: "404",
