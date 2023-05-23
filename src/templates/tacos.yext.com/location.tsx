@@ -11,7 +11,7 @@ import {
   TransformProps,
 } from "@yext/pages";
 import { isProduction } from "@yext/pages/util";
-import "../../styles/tacos.yext.com.pagescdn.com/index.css";
+import "../../styles/tacos.yext.com/index.css";
 import Favicon from "../../assets/images/taco-favicon.ico";
 import About from "../../components/About";
 import Banner from "../../components/BannerBrand1";

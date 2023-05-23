@@ -13,7 +13,7 @@ import {
   TemplateProps,
   TemplateRenderProps,
 } from "@yext/pages";
-import "../../styles/sushi.yext.com.pagescdn.com/index.css";
+import "../../styles/sushi.yext.com/index.css";
 import PageLayout from "../../components/PageLayout";
 import Card from "../../components/Card";
 import { ExternalImage } from "../../types/ExternalImage";

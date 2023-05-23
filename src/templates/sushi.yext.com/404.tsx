@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../../styles/tacos.yext.com.pagescdn.com/index.css";
+import "../../styles/sushi.yext.com/index.css";
 import {
   Template,
   GetPath,
@@ -9,9 +9,9 @@ import {
   TemplateProps,
   TemplateRenderProps,
 } from "@yext/pages";
-import Banner from "../../components/BannerBrand1";
+import Banner from "../../components/BannerBrand2";
 import PageLayout from "../../components/PageLayout";
-import Favicon from "../../assets/images/taco-favicon.ico";
+import Favicon from "../../assets/images/sushi-favicon.ico";
 
 export const config: TemplateConfig = {
   name: "404",
@@ -45,7 +45,7 @@ const FourOhFour: Template<TemplateRenderProps> = () => {
   return (
     <>
       <PageLayout>
-        <Banner name={"404 - Page not found"} />
+        <Banner name={"404 - Page not found"} imagePath={"/src/assets/images/banner.webp"} />
         <div className="centered-container">
           <div className="flex justify-center items-center text-2xl bg-gray-200 h-60 rounded-md shadow-md">
             <p>This page does not exist.</p>

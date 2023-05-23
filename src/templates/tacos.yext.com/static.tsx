@@ -3,7 +3,7 @@
  */
 import * as React from "react";
 import { fetch } from "@yext/pages/util";
-import "../../styles/tacos.yext.com.pagescdn.com/index.css";
+import "../../styles/tacos.yext.com/index.css";
 import {
   Template,
   GetPath,

@@ -6,7 +6,7 @@
         "pattern": "assets/**/*"
       }
     ],
-    "features": "sites-config/tacos.yext.com.pagescdn.com/features.json",
+    "features": "sites-config/sushi.yext.com/features.json",
     "plugins": [
       {
         "pluginName": "Generator",
@@ -30,7 +30,7 @@
     "requiredFiles": ["package.json", "package-lock.json", ".npmrc"]
   },
   "buildArtifacts": {
-    "buildCmd": "npx pages build --scope tacos.yext.com.pagescdn.com"
+    "buildCmd": "npx pages build --scope sushi.yext.com"
   },
   "livePreview": {
     "serveSetupCmd": ":"
