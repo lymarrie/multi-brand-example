@@ -5,6 +5,8 @@ dist/
 .yext
 .artifact-output
 sites-config/features.json
+sites-config/sushi.yext.com/features.json
+sites-config/tacos.yext.com/features.json
 functions/functionMetadata.json
 *.local
 
