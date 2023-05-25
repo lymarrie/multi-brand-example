@@ -156,7 +156,7 @@ const Location: Template<TemplateRenderProps> = ({
   return (
     <>
       <PageLayout _site={_site}>
-        <Banner name={name} address={address} imagePath={"/src/assets/images/banner.webp"} />
+        <Banner name={name} address={address} />
         <div className="centered-container">
           {/* <BreadCrumbs
             breadcrumbs={dm_directoryParents}

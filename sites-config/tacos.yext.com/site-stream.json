@@ -1,7 +1,7 @@
 {
     "$id": "site-entity",
     "filter": {
-      "entityIds": ["turtlehead-tacos-site"]
+      "entityIds": ["taco-galaxy-site"]
     },
     "source": "knowledgeGraph",
     "fields": [

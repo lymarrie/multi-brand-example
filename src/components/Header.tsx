@@ -8,13 +8,18 @@ const navigation = [
   { name: "About", href: "#" },
 ];
 
-const Header = () => {
+export interface HeaderProps {
+  _site?: any;
+}
+
+const Header = ({ _site }: HeaderProps) => {
+  const logoUrl = _site.logo.image.url;
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex h-24 justify-between">
+            <div className="flex py-2 justify-between">
               <div className="flex">
                 <div className="-ml-2 mr-2 flex items-center md:hidden">
                   {/* Mobile menu button */}
@@ -29,18 +34,18 @@ const Header = () => {
                 </div>
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="block lg:hidden"
-                    src="https://cdn.fs.brandfolder.com/cache=expiry:604800/deY3VGFpSjC761Abjbfc"
+                    className="block rounded-full lg:hidden"
+                    src={logoUrl}
                     alt="Your Company"
-                    width="50"
-                    height="50"
+                    width="75"
+                    height="75"
                   />
                   <img
-                    className="hidden lg:block"
-                    src="https://cdn.fs.brandfolder.com/cache=expiry:604800/deY3VGFpSjC761Abjbfc"
+                    className="hidden rounded-full lg:block"
+                    src={logoUrl}
                     alt="Your Company"
-                    width="50"
-                    height="50"
+                    width="75"
+                    height="75"
                   />
                 </div>
                 <div className="hidden md:ml-6 md:flex md:space-x-4">

@@ -1,7 +1,7 @@
 {
     "$id": "site-entity",
     "filter": {
-      "entityIds": ["luc-san-sushi-site"]
+      "entityIds": ["yext-sushi-site"]
     },
     "source": "knowledgeGraph",
     "fields": [
