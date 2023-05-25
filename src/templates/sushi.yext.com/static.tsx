@@ -1,6 +1,3 @@
-/**
- * This is an example of how to create a static template that uses getStaticProps to retrieve data.
- */
 import * as React from "react";
 import { fetch } from "@yext/pages/util";
 import {
@@ -20,61 +17,16 @@ import { ExternalImage } from "../../types/ExternalImage";
 import Favicon from "../../assets/images/sushi-favicon.ico";
 import Banner from "../../components/BannerBrand2";
 
-/**
- * Not required depending on your use case.
- */
+
 export const config: TemplateConfig = {
-  // The name of the feature. If not set the name of this file will be used (without extension).
-  // Use this when you need to override the feature name.
-  name: "luc-sans-sushi",
+  name: "yext-sushi",
 };
 
-/**
- * A local type for transformProps. This could live in src/types but it's generally
- * best practice to keep unshared types local to their usage.
- */
-type ExternalImageData = TemplateProps & { externalImage: ExternalImage };
-
-/**
- * Used to either alter or augment the props passed into the template at render time.
- * This function will be run during generation and pass in directly as props to the default
- * exported function.
- *
- * This can be used when data needs to be retrieved from an external (non-Knowledge Graph)
- * source. This example calls a public API and returns the data.
- *
- * If the page is truly static this function is not necessary.
- */
-export const transformProps: TransformProps<ExternalImageData> = async (
-  data
-) => {
-  const url = YEXT_PUBLIC_EXTERNAL_IMAGE_API_BASE_URL + "/2";
-  const externalImage = (await fetch(url).then((res: any) =>
-    res.json()
-  )) as ExternalImage;
-  return { ...data, externalImage };
-};
-
-/**
- * Defines the path that the generated file will live at for production.
- *
- * NOTE: This currently has no impact on the local dev path. Local dev urls currently
- * take on the form: featureName/entityId
- */
-export const getPath: GetPath<ExternalImageData> = () => {
+export const getPath: GetPath<TemplateProps> = () => {
   return `index.html`;
 };
 
-type ExternalImageRenderData = TemplateRenderProps & {
-  externalImage: ExternalImage;
-};
 
-/**
- * This allows the user to define a function which will take in their template
- * data and produce a HeadConfig object. When the site is generated, the HeadConfig
- * will be used to generate the inner contents of the HTML document's <head> tag.
- * This can include the title, meta tags, script tags, etc.
- */
 export const getHeadConfig: GetHeadConfig<
   TemplateRenderProps
 > = (): HeadConfig => {
@@ -102,18 +54,16 @@ export const getHeadConfig: GetHeadConfig<
   };
 };
 
-/**
- * This is the main template. It can have any name as long as it's the default export.
- * The props passed in here are the direct result from `transformProps`.
- */
-const Static: Template<ExternalImageRenderData> = ({ externalImage }) => {
+
+const Static: Template<TemplateRenderProps> = ({ document }) => {
+  const { _site } = document;  
   return (
     <>
-      <PageLayout>
-      <Banner name={"Luc-san's Sushi"} imagePath={"/src/assets/images/banner.webp"} />
+      <PageLayout _site={_site}>
+      <Banner name={"Yext Sushi"} />
         <div className="centered-container">
           <div className="section space-y-14 px-10">
-            <Card {...externalImage} />
+          <h1>Hello world!</h1>
           </div>
         </div>
       </PageLayout>
